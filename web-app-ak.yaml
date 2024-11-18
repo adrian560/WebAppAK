@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web-app-ak         # Meno aplikácie v ArgoCD
+  namespace: argocd          # Namespace, v ktorom bude aplikácia vytvorená
+spec:
+  project: default           # Názov projektu, v rámci ktorého bude aplikácia spravovaná
+  source:
+    repoURL: 'https://github.com/adrian560/WebAppAK'   # URL Git repozitára s Helm chartom
+    targetRevision: HEAD      # Verzia alebo vetva v Git repozitári (zvyčajne HEAD pre najnovšie)
+    path: ./       # Cesta k adresáru s Helm chartom v repozitári
+  destination:
+    server: 'https://kubernetes.default.svc'  # Kubernetes API server (používa sa predvolené nastavenie)
+    namespace: default         # Namespace, do ktorého bude aplikácia nasadená
+  syncPolicy:
+    automated:                 # Automatické synchronizovanie aplikácie s Gitem
+      prune: true              # Odstránenie aplikácií, ktoré už nie sú v Git repozitári
+      selfHeal: true           # Automatické opravenie odchýlok, ak došlo k neúmyselným zmenám
