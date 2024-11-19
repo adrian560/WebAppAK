@@ -22,7 +22,7 @@ backend:
     pullPolicy: IfNotPresent
   hostPathVolumes:
     - name: json-files-volume
-      path: C:/Users/adika/Documents/Ulozisko/json_files
+      path: C:\\Users\\adika\\Documents\\Ulozisko\\Genetic\\results
     - name: images-volume
       path: C:/Users/adika/Documents/Ulozisko/Genetic/images
     - name: results-volume
