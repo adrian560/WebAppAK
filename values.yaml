@@ -12,6 +12,7 @@ frontend:
     repository: adrian146935/rootrepo-frontend
     tag: latest
     pullPolicy: IfNotPresent
+  containerPort: 80
 
 # pre backend (nový image)
 backend:
@@ -19,6 +20,8 @@ backend:
     repository: adrian146935/rootrepo-backend
     tag: latest
     pullPolicy: IfNotPresent
+  containerPort: 8080
+
 
 
 
