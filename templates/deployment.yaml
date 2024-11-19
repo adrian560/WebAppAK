@@ -15,8 +15,10 @@ spec:
         app: {{ .Chart.Name }}
     spec:
        containers:
-         - name: {{ .Chart.Name }}
-           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-           ports:
-             - containerPort: 4200
+        - name: frontend
+          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+          imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
+        - name: backend
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
 

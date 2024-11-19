@@ -15,4 +15,4 @@ spec:
   syncPolicy:
     automated:                 # Automatické synchronizovanie aplikácie s Gitem
       prune: true              # Odstránenie aplikácií, ktoré už nie sú v Git repozitári
-      selfHeal: true           # Automatické opravenie odchýlok, ak došlo k neúmyselným zmenám
+      #selfHeal: true           # Automatické opravenie odchýlok, ak došlo k neúmyselným zmenám
