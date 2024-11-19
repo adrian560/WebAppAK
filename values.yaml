@@ -17,9 +17,16 @@ frontend:
 # pre backend (nový image)
 backend:
   image:
-    repository: adrian146935/rootrepo-backend
+    repository: your-backend-image
     tag: latest
     pullPolicy: IfNotPresent
+  hostPathVolumes:
+    - name: json-files-volume
+      path: C:/Users/adika/Documents/WebAppAK/json_files
+    - name: images-volume
+      path: C:/Users/adika/Documents/WebAppAK/Genetic/images
+    - name: results-volume
+      path: C:/Users/adika/Documents/WebAppAK/Genetic/results
   containerPort: 8080
 
 

@@ -26,9 +26,9 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-backend
   labels:
-    app: {{ .Chart.Name }}-backend
+    app: {{ .Chart.Name }}
 spec:
-  replicas: {{ .Values.backend.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       app: {{ .Chart.Name }}-backend
@@ -41,5 +41,15 @@ spec:
         - name: backend
           image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
           imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
-          ports:
-            - containerPort: {{ .Values.backend.containerPort }}
+          volumeMounts:
+          {{- range .Values.backend.hostPathVolumes }}
+            - mountPath: /app/{{ .name | replace "-volume" "" }}
+              name: {{ .name }}
+          {{- end }}
+      volumes:
+      {{- range .Values.backend.hostPathVolumes }}
+        - name: {{ .name }}
+          hostPath:
+            path: {{ .path }}
+            type: Directory
+      {{- end }}
