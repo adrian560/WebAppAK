@@ -22,11 +22,11 @@ backend:
     pullPolicy: IfNotPresent
   hostPathVolumes:
     - name: json-files-volume
-      path: C:/Users/adika/Documents/WebAppAK/json_files
+      path: C:/Users/adika/Documents/Ulozisko/json_files
     - name: images-volume
-      path: C:/Users/adika/Documents/WebAppAK/Genetic/images
+      path: C:/Users/adika/Documents/Ulozisko/Genetic/images
     - name: results-volume
-      path: C:/Users/adika/Documents/WebAppAK/Genetic/results
+      path: C:/Users/adika/Documents/Ulozisko/Genetic/results
   containerPort: 8080
 
 
